@@ -1,0 +1,14 @@
+name = "telegram-webhook-bot"
+version = "0.1.0"
+
+[build]
+  # default build settings
+
+[[services]]
+  name = "webhook"
+  type = "python"
+  path = "."                 # repo path where app.py and requirements.txt live
+  runtime = "python3.11"
+  start = "uvicorn app:app --host 0.0.0.0 --port $PORT"
+  env = []
+  # exposed port is determined by $PORT; Seed will assign it automatically
